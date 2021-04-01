@@ -32,7 +32,7 @@ class IntradayViewController: UIViewController {
         self.definesPresentationContext = true
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search Here"
+        searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
     }
@@ -63,7 +63,7 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let safeResult = result else { return 1}
-        return safeResult.date.count // For temporary, TAKE ATTENTION IN HERE TOMORROW
+        return safeResult.date.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,10 +71,10 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
         
         if let safeResult = result {
             cell.dateLabel.text = safeResult.date[indexPath.row]
-            cell.closeLabel.text = safeResult.close
-            cell.openLabel.text = safeResult.open
-            cell.lowLabel.text = safeResult.low
-            cell.highLabel.text = safeResult.high
+            cell.closeLabel.text = safeResult.close[indexPath.row]
+            cell.openLabel.text = safeResult.open[indexPath.row]
+            cell.lowLabel.text = safeResult.low[indexPath.row]
+            cell.highLabel.text = safeResult.high[indexPath.row]
         }
         
         

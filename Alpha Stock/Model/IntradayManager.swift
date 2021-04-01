@@ -60,7 +60,7 @@ class IntradayManager {
             let decodedData = try decoder.decode(Intraday.self, from: data)
             
             let tSeries = decodedData.timeSeries.keys
-            let dateArray = tSeries.sorted()
+            let dateArray = tSeries.localizedStandardSorted(ascending: false)
 //            print(dateArray)
             
 //            var finishItem: String? {
@@ -71,28 +71,31 @@ class IntradayManager {
 //                return nil
 //            }
             
-            var dateItem: [String] = dateArray
-            print(dateItem)
+            let dateItem: [String] = dateArray // Output: ["2021-03-29 18:15:00", "2021-03-29 18:15:00"]
             
-            guard let safeData = decodedData.timeSeries["2021-03-29 18:15:00"] else { return nil }
+            var openItem = [String]()
+            var highItem = [String]()
+            var closeItem = [String]()
+            var volumeItem = [String]()
+            var lowItem = [String]()
             
-            let date = dateItem
-            let openItem = safeData.open
-            let highItem = safeData.low
-            let closeItem = safeData.high
-            let volumeItem = safeData.volume
-            let lowItem = safeData.low
+            for index in dateItem {
+                guard let safeData = decodedData.timeSeries[index] else { return nil }
+                
+                print(safeData)
+                openItem.append(safeData.open)
+                highItem.append(safeData.high)
+                lowItem.append(safeData.low)
+                closeItem.append(safeData.close)
+                volumeItem.append(safeData.volume)
+                
+            }
             
-            let saveValue = IntradayModel(date: date, open: openItem, high: highItem, close: closeItem, volume: volumeItem, low: lowItem)
+            
+            let saveValue = IntradayModel(date: dateItem, open: openItem, high: highItem, close: closeItem, volume: volumeItem, low: lowItem)
             print(saveValue)
             return saveValue
-            
-            //            let tSeries = decodedData.timeSeries.keys
-            //            print(tSeries.sorted())
-            //            for i in tSeries {
-            //                print(i.key)
-            //            }
-            
+      
         } catch {
             print(error.localizedDescription)
             return nil
@@ -100,4 +103,12 @@ class IntradayManager {
         
     }
     
+}
+
+
+public extension Sequence where Element: StringProtocol {
+     func localizedStandardSorted(ascending: Bool = true) -> [Element] {
+        let result: ComparisonResult = ascending ? .orderedAscending : .orderedDescending
+        return sorted { $0.localizedStandardCompare($1) == result }
+    }
 }

@@ -9,11 +9,11 @@ import Foundation
 
 struct IntradayModel {
     var date: [String]
-    var open: String = ""
-    var high: String = ""
-    var close: String = ""
-    var volume: String = ""
-    var low: String = ""
+    var open: [String]
+    var high: [String]
+    var close: [String]
+    var volume: [String]
+    var low: [String]
     
     
 }
