@@ -8,7 +8,7 @@
 import UIKit
 
 class IntradayViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var closeLabel: UILabel!
     @IBOutlet weak var openLabel: UILabel!
     @IBOutlet weak var lowLabel: UILabel!
@@ -26,8 +26,11 @@ class IntradayViewCell: UITableViewCell {
         
         cellView.layer.shadowColor = UIColor.black.cgColor
         cellView.layer.shadowOpacity = 0.2
-        cellView.layer.shadowPath = UIBezierPath(rect: cellView.bounds).cgPath
-        cellView.layer.shadowRadius = 24
+        cellView.layer.shadowRadius = 4
+        
+
+        cellView.layer.masksToBounds = false
+        cellView.layer.shadowOffset = CGSize(width: 0, height: 0 )
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

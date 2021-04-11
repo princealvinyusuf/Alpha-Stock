@@ -61,15 +61,6 @@ class IntradayManager {
             
             let tSeries = decodedData.timeSeries.keys
             let dateArray = tSeries.localizedStandardSorted(ascending: false)
-//            print(dateArray)
-            
-//            var finishItem: String? {
-//                for eachItem in itemArray {
-//                    print(eachItem)
-//                    return eachItem
-//                }
-//                return nil
-//            }
             
             let dateItem: [String] = dateArray // Output: ["2021-03-29 18:15:00", "2021-03-29 18:15:00"]
             
@@ -82,7 +73,6 @@ class IntradayManager {
             for index in dateItem {
                 guard let safeData = decodedData.timeSeries[index] else { return nil }
                 
-                print(safeData)
                 openItem.append(safeData.open)
                 highItem.append(safeData.high)
                 lowItem.append(safeData.low)
@@ -93,7 +83,6 @@ class IntradayManager {
             
             
             let saveValue = IntradayModel(date: dateItem, open: openItem, high: highItem, close: closeItem, volume: volumeItem, low: lowItem)
-            print(saveValue)
             return saveValue
       
         } catch {

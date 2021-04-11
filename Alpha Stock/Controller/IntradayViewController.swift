@@ -9,11 +9,15 @@ import UIKit
 
 class IntradayViewController: UIViewController {
     
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    
     var intradayManager = IntradayManager()
     var result: IntradayModel?
     
-    @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +34,22 @@ class IntradayViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.definesPresentationContext = true
-        let searchController = UISearchController(searchResultsController: nil)
+        
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
+        searchController.searchBar.scopeButtonTitles = ["Low", "High"]
+        
+        if #available(iOS 11.0, *) {
+            navigationController?.navigationBar.prefersLargeTitles = true
+            navigationItem.searchController = searchController
+            // Search bar will visible all the time.
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            // For iOS 10 and earlier
+            tableView.tableHeaderView = searchController.searchBar
+        }
     }
     
 }
@@ -47,7 +62,6 @@ extension IntradayViewController: UISearchBarDelegate {
         print("Pressed")
         
         intradayManager.fetchData(symbol: searchBar.text!)
-
     }
     
 }
@@ -57,12 +71,11 @@ extension IntradayViewController: UISearchBarDelegate {
 extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let safeResult = result else { return 1}
+        guard let safeResult = result else { return 1 }
         return safeResult.date.count
     }
     
@@ -75,22 +88,29 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
             cell.openLabel.text = safeResult.open[indexPath.row]
             cell.lowLabel.text = safeResult.low[indexPath.row]
             cell.highLabel.text = safeResult.high[indexPath.row]
+        } else {
+            cell.isHidden = true
         }
         
-        
+    
         return cell
     }
     
 }
 
+
+// MARK: - INTRADAY MANAGER DELEGATE
 extension IntradayViewController: IntradayManagerDelegate {
     
     func didReceiveTableData(intraday: IntradayModel?) {
         if let action = intraday {
+            
             DispatchQueue.main.async {
                 self.result = action
+//                self.result!.date.sort(by: {$0 > $1})
                 self.tableView.reloadData()
             }
+            
         }
     }
     
@@ -99,4 +119,17 @@ extension IntradayViewController: IntradayManagerDelegate {
     }
 }
 
+// MARK: - ACTION PRESSED
 
+extension IntradayViewController {
+    
+    @IBAction func segmentedControllPressed(_ sender: UISegmentedControl) {
+        
+        print("Prsedd")
+    }
+    
+
+    
+    
+    
+}
