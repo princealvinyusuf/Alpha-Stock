@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qf2-wO-DMW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x12-FA-YGc">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -41,12 +41,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="88.392857142857139"/>
+            <point key="canvasLocation" x="1839.1304347826087" y="88.392857142857139"/>
+        </scene>
+        <!--Compare-->
+        <scene sceneID="77m-1Y-ubL">
+            <objects>
+                <viewController id="Hi4-ku-wHP" customClass="CompareViewController" customModule="Alpha_Stock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fWb-vL-a2S">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mfi-Rf-A8R">
+                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Hi4-ku-wHP" id="NsQ-yf-ihh"/>
+                                    <outlet property="delegate" destination="Hi4-ku-wHP" id="if2-U1-c0c"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="MBM-HX-KtZ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="MBM-HX-KtZ" firstAttribute="bottom" secondItem="mfi-Rf-A8R" secondAttribute="bottom" id="CbA-Qp-ZZw"/>
+                            <constraint firstItem="mfi-Rf-A8R" firstAttribute="leading" secondItem="MBM-HX-KtZ" secondAttribute="leading" id="TyC-rV-kqu"/>
+                            <constraint firstItem="MBM-HX-KtZ" firstAttribute="trailing" secondItem="mfi-Rf-A8R" secondAttribute="trailing" id="hJu-KB-OPh"/>
+                            <constraint firstItem="mfi-Rf-A8R" firstAttribute="top" secondItem="MBM-HX-KtZ" secondAttribute="top" id="uZN-u2-kAx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Compare" id="YwX-6f-PPQ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="h5V-fB-FMM">
+                            <connections>
+                                <action selector="addButtonPressed:" destination="Hi4-ku-wHP" id="MJu-dV-nz9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="mfi-Rf-A8R" id="GwH-oX-ACH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XhV-Rb-Wht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1839" y="820"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sml-hS-Z4u">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qf2-wO-DMW" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="9ia-Ud-B4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="gn1-rw-EnP">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -59,10 +101,49 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i79-Xr-oCk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="88.392857142857139"/>
+        </scene>
+        <!--Compare-->
+        <scene sceneID="aCY-Bt-HLt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="udp-Kc-LJQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Compare" image="circlebadge.2" catalog="system" id="N3n-kN-Rgj"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SUR-4v-V9h">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Hi4-ku-wHP" kind="relationship" relationship="rootViewController" id="dVw-KS-yB9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P7R-7x-Jqh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="929" y="820"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="iLn-Vg-Sr8">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="x12-FA-YGc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7qG-G9-H88">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Qf2-wO-DMW" kind="relationship" relationship="viewControllers" id="exZ-qx-Mvw"/>
+                        <segue destination="udp-Kc-LJQ" kind="relationship" relationship="viewControllers" id="eZd-Oe-X8E"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AQJ-tJ-OQ4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="18.840579710144929" y="88.392857142857139"/>
         </scene>
     </scenes>
     <resources>
+        <image name="circlebadge.2" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -15,9 +15,15 @@
 		9F93875626135EE80024DADF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F93875526135EE80024DADF /* Assets.xcassets */; };
 		9F93875926135EE80024DADF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F93875726135EE80024DADF /* LaunchScreen.storyboard */; };
 		9F9387672613614A0024DADF /* IntradayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F9387662613614A0024DADF /* IntradayManager.swift */; };
+		9FBA43662623164200A35CB1 /* DailyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA43652623164200A35CB1 /* DailyManager.swift */; };
+		9FBA43692623185800A35CB1 /* DailyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA43682623185800A35CB1 /* DailyModel.swift */; };
+		9FBA436D2623199000A35CB1 /* Daily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBA436C2623199000A35CB1 /* Daily.swift */; };
 		9FBB895C26140B46008D5ABF /* IntradayViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB895A26140B46008D5ABF /* IntradayViewCell.swift */; };
 		9FBB895D26140B46008D5ABF /* IntradayViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FBB895B26140B46008D5ABF /* IntradayViewCell.xib */; };
 		9FBB89602614179D008D5ABF /* IntradayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FBB895F2614179D008D5ABF /* IntradayModel.swift */; };
+		9FD245A92623008D00044AE7 /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD245A82623008D00044AE7 /* CompareViewController.swift */; };
+		9FD245AD2623024000044AE7 /* CompareViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD245AB2623024000044AE7 /* CompareViewCell.swift */; };
+		9FD245AE2623024000044AE7 /* CompareViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD245AC2623024000044AE7 /* CompareViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +37,15 @@
 		9F93875826135EE80024DADF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F93875A26135EE80024DADF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F9387662613614A0024DADF /* IntradayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayManager.swift; sourceTree = "<group>"; };
+		9FBA43652623164200A35CB1 /* DailyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyManager.swift; sourceTree = "<group>"; };
+		9FBA43682623185800A35CB1 /* DailyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyModel.swift; sourceTree = "<group>"; };
+		9FBA436C2623199000A35CB1 /* Daily.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Daily.swift; sourceTree = "<group>"; };
 		9FBB895A26140B46008D5ABF /* IntradayViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayViewCell.swift; sourceTree = "<group>"; };
 		9FBB895B26140B46008D5ABF /* IntradayViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntradayViewCell.xib; sourceTree = "<group>"; };
 		9FBB895F2614179D008D5ABF /* IntradayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntradayModel.swift; sourceTree = "<group>"; };
+		9FD245A82623008D00044AE7 /* CompareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewController.swift; sourceTree = "<group>"; };
+		9FD245AB2623024000044AE7 /* CompareViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewCell.swift; sourceTree = "<group>"; };
+		9FD245AC2623024000044AE7 /* CompareViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompareViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,9 +93,8 @@
 		9F93876126135F2A0024DADF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F9387662613614A0024DADF /* IntradayManager.swift */,
-				9F7B325C2613661600450559 /* Intraday.swift */,
-				9FBB895F2614179D008D5ABF /* IntradayModel.swift */,
+				9FBA4363262315E800A35CB1 /* Intraday */,
+				9FBA4364262315F500A35CB1 /* Daily */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +105,8 @@
 				9F93875226135EE80024DADF /* Main.storyboard */,
 				9FBB895A26140B46008D5ABF /* IntradayViewCell.swift */,
 				9FBB895B26140B46008D5ABF /* IntradayViewCell.xib */,
+				9FD245AB2623024000044AE7 /* CompareViewCell.swift */,
+				9FD245AC2623024000044AE7 /* CompareViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,8 +115,29 @@
 			isa = PBXGroup;
 			children = (
 				9F93875026135EE80024DADF /* IntradayViewController.swift */,
+				9FD245A82623008D00044AE7 /* CompareViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		9FBA4363262315E800A35CB1 /* Intraday */ = {
+			isa = PBXGroup;
+			children = (
+				9F9387662613614A0024DADF /* IntradayManager.swift */,
+				9F7B325C2613661600450559 /* Intraday.swift */,
+				9FBB895F2614179D008D5ABF /* IntradayModel.swift */,
+			);
+			path = Intraday;
+			sourceTree = "<group>";
+		};
+		9FBA4364262315F500A35CB1 /* Daily */ = {
+			isa = PBXGroup;
+			children = (
+				9FBA43652623164200A35CB1 /* DailyManager.swift */,
+				9FBA43682623185800A35CB1 /* DailyModel.swift */,
+				9FBA436C2623199000A35CB1 /* Daily.swift */,
+			);
+			path = Daily;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +199,7 @@
 			files = (
 				9FBB895D26140B46008D5ABF /* IntradayViewCell.xib in Resources */,
 				9F93875926135EE80024DADF /* LaunchScreen.storyboard in Resources */,
+				9FD245AE2623024000044AE7 /* CompareViewCell.xib in Resources */,
 				9F93875626135EE80024DADF /* Assets.xcassets in Resources */,
 				9F93875426135EE80024DADF /* Main.storyboard in Resources */,
 			);
@@ -178,11 +213,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F93875126135EE80024DADF /* IntradayViewController.swift in Sources */,
+				9FD245AD2623024000044AE7 /* CompareViewCell.swift in Sources */,
 				9F93874D26135EE80024DADF /* AppDelegate.swift in Sources */,
 				9F93874F26135EE80024DADF /* SceneDelegate.swift in Sources */,
 				9FBB89602614179D008D5ABF /* IntradayModel.swift in Sources */,
+				9FBA436D2623199000A35CB1 /* Daily.swift in Sources */,
+				9FBA43662623164200A35CB1 /* DailyManager.swift in Sources */,
+				9FD245A92623008D00044AE7 /* CompareViewController.swift in Sources */,
 				9F7B325D2613661600450559 /* Intraday.swift in Sources */,
 				9FBB895C26140B46008D5ABF /* IntradayViewCell.swift in Sources */,
+				9FBA43692623185800A35CB1 /* DailyModel.swift in Sources */,
 				9F9387672613614A0024DADF /* IntradayManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
