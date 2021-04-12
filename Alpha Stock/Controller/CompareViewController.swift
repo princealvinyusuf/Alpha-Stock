@@ -54,12 +54,12 @@ extension CompareViewController: UITableViewDelegate, UITableViewDataSource {
                 case 0:
                     if !textFieldOne.text!.isEmpty {
                         cell.stockLabel.text = textFieldOne.text?.uppercased()
-                        cell.highValue.text = safeResultOne.high
+                        cell.openValue.text = safeResultOne.open
                         cell.lowValue.text = safeResultOne.low
                         cell.dateValue.text = safeResultOne.date.last
                     } else {
                         cell.stockLabel.text = "Stock Label"
-                        cell.highValue.text = "High Value"
+                        cell.openValue.text = "Open Value"
                         cell.lowValue.text = "Low Value"
                         cell.dateValue.text = "Date Value"
                     }
@@ -67,12 +67,12 @@ extension CompareViewController: UITableViewDelegate, UITableViewDataSource {
                 case 1:
                     if !textFieldTwo.text!.isEmpty {
                         cell.stockLabel.text = textFieldTwo.text?.uppercased()
-                        cell.highValue.text = safeResultTwo.high
+                        cell.openValue.text = safeResultTwo.open
                         cell.lowValue.text = safeResultTwo.low
                         cell.dateValue.text = safeResultTwo.date.last
                     } else {
                         cell.stockLabel.text = "Stock Label"
-                        cell.highValue.text = "High Value"
+                        cell.openValue.text = "Open Value"
                         cell.lowValue.text = "Low Value"
                         cell.dateValue.text = "Date Value"
                     }
@@ -80,12 +80,12 @@ extension CompareViewController: UITableViewDelegate, UITableViewDataSource {
                 case 2:
                     if !textFieldThree.text!.isEmpty {
                         cell.stockLabel.text = textFieldThree.text?.uppercased()
-                        cell.highValue.text = safeResultThree.high
+                        cell.openValue.text = safeResultThree.open
                         cell.lowValue.text = safeResultThree.low
                         cell.dateValue.text = safeResultThree.date.last
                     } else {
                         cell.stockLabel.text = "Stock Label"
-                        cell.highValue.text = "High Value"
+                        cell.openValue.text = "Open Value"
                         cell.lowValue.text = "Low Value"
                         cell.dateValue.text = "Date Value"
                     }

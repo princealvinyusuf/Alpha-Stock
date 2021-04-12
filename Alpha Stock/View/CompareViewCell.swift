@@ -13,7 +13,7 @@ class CompareViewCell: UITableViewCell {
     @IBOutlet weak var dateValue: UILabel!
     @IBOutlet weak var stockLabel: UILabel!
     @IBOutlet weak var lowValue: UILabel!
-    @IBOutlet weak var highValue: UILabel!
+    @IBOutlet weak var openValue: UILabel!
     
     
     @IBOutlet weak var view: UIView!
