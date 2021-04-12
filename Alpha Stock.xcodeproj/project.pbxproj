@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F040E9C2624E3C7000E9415 /* KeyChain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F040E9B2624E3C7000E9415 /* KeyChain.swift */; };
 		9F7B325D2613661600450559 /* Intraday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7B325C2613661600450559 /* Intraday.swift */; };
 		9F82590B2623CF7200A1662B /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F82590A2623CF7200A1662B /* CustomViewController.swift */; };
 		9F82590F2623D00600A1662B /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F82590D2623D00600A1662B /* CustomViewCell.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9F040E9B2624E3C7000E9415 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
 		9F7B325C2613661600450559 /* Intraday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intraday.swift; sourceTree = "<group>"; };
 		9F82590A2623CF7200A1662B /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		9F82590D2623D00600A1662B /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
@@ -71,6 +73,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F040E992624E39C000E9415 /* Security */ = {
+			isa = PBXGroup;
+			children = (
+				9F040E9B2624E3C7000E9415 /* KeyChain.swift */,
+			);
+			path = Security;
+			sourceTree = "<group>";
+		};
 		9F8259072623CB7700A1662B /* Intraday */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +121,7 @@
 				9F93876126135F2A0024DADF /* Model */,
 				9F93876226135F310024DADF /* View */,
 				9F93876326135F350024DADF /* Controller */,
+				9F040E992624E39C000E9415 /* Security */,
 				9F93874C26135EE80024DADF /* AppDelegate.swift */,
 				9F93874E26135EE80024DADF /* SceneDelegate.swift */,
 				9F93875526135EE80024DADF /* Assets.xcassets */,
@@ -270,6 +281,7 @@
 				9F93874F26135EE80024DADF /* SceneDelegate.swift in Sources */,
 				9FBB89602614179D008D5ABF /* IntradayModel.swift in Sources */,
 				9FBA436D2623199000A35CB1 /* Daily.swift in Sources */,
+				9F040E9C2624E3C7000E9415 /* KeyChain.swift in Sources */,
 				9F82590B2623CF7200A1662B /* CustomViewController.swift in Sources */,
 				9FBA43662623164200A35CB1 /* DailyManager.swift in Sources */,
 				9FD245A92623008D00044AE7 /* CompareViewController.swift in Sources */,
