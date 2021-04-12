@@ -33,6 +33,10 @@ class CustomViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     
+    // Object
+    var customManager = CustomManager()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,12 +185,21 @@ extension CustomViewController: UITableViewDelegate, UITableViewDataSource {
 extension CustomViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("User Default API \(userDefaults.string(forKey: "apiChooser"))")
-        print("User Default Interval \(userDefaults.string(forKey: "intervalChooser"))")
-        print("User Default Outputsize \(userDefaults.string(forKey: "outputsizeChooser"))")
-       
-        // Call the funtion to fetch data
+        let apiData = userDefaults.string(forKey: "apiChooser") ?? "U9UEIDBB9SG2DHLV"
+        let intervalData = userDefaults.string(forKey: "intervalChooser") ?? "5min"
+        let outputsizeData = userDefaults.string(forKey: "outputsizeChooser") ?? "compact"
+        let symbolData = searchBar.text!
         
+        print("API: \(apiData)")
+        print("Interval: \(intervalData)")
+        print("Output: \(outputsizeData)")
+        print("Symbol: \(symbolData)")
+        
+        
+        
+        
+        // Call the funtion to fetch data
+        customManager.fetchData(symbol: symbolData, apiKey: apiData, interval: intervalData, outputsize: outputsizeData)
         
         
         
