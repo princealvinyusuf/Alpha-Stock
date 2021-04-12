@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9F7B325D2613661600450559 /* Intraday.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7B325C2613661600450559 /* Intraday.swift */; };
+		9F82590B2623CF7200A1662B /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F82590A2623CF7200A1662B /* CustomViewController.swift */; };
+		9F82590F2623D00600A1662B /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F82590D2623D00600A1662B /* CustomViewCell.swift */; };
+		9F8259102623D00600A1662B /* CustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9F82590E2623D00600A1662B /* CustomViewCell.xib */; };
 		9F93874D26135EE80024DADF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93874C26135EE80024DADF /* AppDelegate.swift */; };
 		9F93874F26135EE80024DADF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93874E26135EE80024DADF /* SceneDelegate.swift */; };
 		9F93875126135EE80024DADF /* IntradayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F93875026135EE80024DADF /* IntradayViewController.swift */; };
@@ -28,6 +31,9 @@
 
 /* Begin PBXFileReference section */
 		9F7B325C2613661600450559 /* Intraday.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Intraday.swift; sourceTree = "<group>"; };
+		9F82590A2623CF7200A1662B /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
+		9F82590D2623D00600A1662B /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
+		9F82590E2623D00600A1662B /* CustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCell.xib; sourceTree = "<group>"; };
 		9F93874926135EE80024DADF /* Alpha Stock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Alpha Stock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F93874C26135EE80024DADF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F93874E26135EE80024DADF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +65,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F8259072623CB7700A1662B /* Intraday */ = {
+			isa = PBXGroup;
+			children = (
+				9FBB895A26140B46008D5ABF /* IntradayViewCell.swift */,
+				9FBB895B26140B46008D5ABF /* IntradayViewCell.xib */,
+			);
+			path = Intraday;
+			sourceTree = "<group>";
+		};
+		9F8259082623CB8400A1662B /* Compare */ = {
+			isa = PBXGroup;
+			children = (
+				9FD245AB2623024000044AE7 /* CompareViewCell.swift */,
+				9FD245AC2623024000044AE7 /* CompareViewCell.xib */,
+			);
+			path = Compare;
+			sourceTree = "<group>";
+		};
 		9F93874026135EE80024DADF = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +126,11 @@
 		9F93876226135F310024DADF /* View */ = {
 			isa = PBXGroup;
 			children = (
+				9F8259072623CB7700A1662B /* Intraday */,
+				9F8259082623CB8400A1662B /* Compare */,
 				9F93875226135EE80024DADF /* Main.storyboard */,
-				9FBB895A26140B46008D5ABF /* IntradayViewCell.swift */,
-				9FBB895B26140B46008D5ABF /* IntradayViewCell.xib */,
-				9FD245AB2623024000044AE7 /* CompareViewCell.swift */,
-				9FD245AC2623024000044AE7 /* CompareViewCell.xib */,
+				9F82590D2623D00600A1662B /* CustomViewCell.swift */,
+				9F82590E2623D00600A1662B /* CustomViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +140,7 @@
 			children = (
 				9F93875026135EE80024DADF /* IntradayViewController.swift */,
 				9FD245A82623008D00044AE7 /* CompareViewController.swift */,
+				9F82590A2623CF7200A1662B /* CustomViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FBB895D26140B46008D5ABF /* IntradayViewCell.xib in Resources */,
+				9F8259102623D00600A1662B /* CustomViewCell.xib in Resources */,
 				9F93875926135EE80024DADF /* LaunchScreen.storyboard in Resources */,
 				9FD245AE2623024000044AE7 /* CompareViewCell.xib in Resources */,
 				9F93875626135EE80024DADF /* Assets.xcassets in Resources */,
@@ -218,8 +244,10 @@
 				9F93874F26135EE80024DADF /* SceneDelegate.swift in Sources */,
 				9FBB89602614179D008D5ABF /* IntradayModel.swift in Sources */,
 				9FBA436D2623199000A35CB1 /* Daily.swift in Sources */,
+				9F82590B2623CF7200A1662B /* CustomViewController.swift in Sources */,
 				9FBA43662623164200A35CB1 /* DailyManager.swift in Sources */,
 				9FD245A92623008D00044AE7 /* CompareViewController.swift in Sources */,
+				9F82590F2623D00600A1662B /* CustomViewCell.swift in Sources */,
 				9F7B325D2613661600450559 /* Intraday.swift in Sources */,
 				9FBB895C26140B46008D5ABF /* IntradayViewCell.swift in Sources */,
 				9FBA43692623185800A35CB1 /* DailyModel.swift in Sources */,
