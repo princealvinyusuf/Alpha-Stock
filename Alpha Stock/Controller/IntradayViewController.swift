@@ -11,7 +11,7 @@ class IntradayViewController: UIViewController {
     
     
     let searchController = UISearchController(searchResultsController: nil)
-    
+    let userDefaults = UserDefaults.standard
     
     var intradayManager = IntradayManager()
     var result: IntradayModel?
@@ -24,7 +24,7 @@ class IntradayViewController: UIViewController {
         
         
         tableView.register(UINib(nibName: "IntradayViewCell", bundle: nil), forCellReuseIdentifier: "cellIdentifier")
-        tableView.rowHeight = 150
+        tableView.rowHeight = 155
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         
@@ -36,7 +36,13 @@ class IntradayViewController: UIViewController {
         self.definesPresentationContext = true
         
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
+        
+        if let stockLabel = userDefaults.string(forKey: "stockLabel") {
+            searchController.searchBar.placeholder = "Your Latest Search: \(stockLabel)"
+        } else {
+            searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
+        }
+        
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         searchController.searchBar.scopeButtonTitles = ["Low", "High"]
@@ -59,9 +65,21 @@ class IntradayViewController: UIViewController {
 extension IntradayViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("Pressed")
+        let symbolData = searchBar.text!
+        if !symbolData.isEmpty {
+            userDefaults.setValue(symbolData, forKey: "stockLabel")
+        }
         
-        intradayManager.fetchData(symbol: searchBar.text!)
+        
+        intradayManager.fetchData(symbol: symbolData)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let stockLabel = userDefaults.string(forKey: "stockLabel") {
+            searchController.searchBar.placeholder = "Your Latest Search: \(stockLabel)"
+        } else {
+            searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
+        }
     }
     
 }
@@ -69,10 +87,6 @@ extension IntradayViewController: UISearchBarDelegate {
 // MARK: - TABLEVIEW
 
 extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let safeResult = result else { return 1 }
@@ -88,6 +102,7 @@ extension IntradayViewController: UITableViewDelegate, UITableViewDataSource {
             cell.openLabel.text = safeResult.open[indexPath.row]
             cell.lowLabel.text = safeResult.low[indexPath.row]
             cell.highLabel.text = safeResult.high[indexPath.row]
+            cell.stockLabel.text = userDefaults.string(forKey: "stockLabel")?.uppercased()
         } else {
             cell.isHidden = true
         }

@@ -10,6 +10,7 @@ import UIKit
 class CustomViewCell: UITableViewCell {
 
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var stockLabel: UILabel!
     @IBOutlet weak var dateValue: UILabel!
     @IBOutlet weak var openValue: UILabel!
     @IBOutlet weak var closeValue: UILabel!

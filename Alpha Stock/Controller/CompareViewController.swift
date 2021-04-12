@@ -28,8 +28,10 @@ class CompareViewController: UIViewController {
         tableView.register(UINib(nibName: "CompareViewCell", bundle: nil), forCellReuseIdentifier: "compareCellIdentifier")
         tableView.rowHeight = 110
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         
         dailyManager.delegate = self
+        
     }
    
     

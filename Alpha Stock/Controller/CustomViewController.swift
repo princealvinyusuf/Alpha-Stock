@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Security
 
 class CustomViewController: UIViewController {
     
@@ -42,8 +43,9 @@ class CustomViewController: UIViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "CustomViewCell", bundle: nil), forCellReuseIdentifier: "customCellIdentifier")
-        tableView.rowHeight = 115
+        tableView.rowHeight = 155
         tableView.separatorStyle = .none
+        tableView.allowsSelection = false
         
         
         pickerView.delegate = self
@@ -70,7 +72,15 @@ class CustomViewController: UIViewController {
         self.definesPresentationContext = true
         
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
+        
+        
+        if let stockLabel = userDefaults.string(forKey: "stockLabel") {
+            searchController.searchBar.placeholder = "Your Latest Search: \(stockLabel)"
+        } else {
+            searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
+        }
+        
+        
         self.navigationItem.searchController = searchController
         searchController.searchBar.delegate = self
         
@@ -181,6 +191,7 @@ extension CustomViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCellIdentifier", for: indexPath) as! CustomViewCell
         
         if let safeResult = result {
+            cell.stockLabel.text = userDefaults.string(forKey: "stockLabel")?.uppercased()
             cell.dateValue.text = safeResult.date[indexPath.row]
             cell.openValue.text = safeResult.open[indexPath.row]
             cell.closeValue.text = safeResult.close[indexPath.row]
@@ -203,6 +214,7 @@ extension CustomViewController: UITableViewDelegate, UITableViewDataSource {
 extension CustomViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        
         let apiData = userDefaults.string(forKey: "apiChooser") ?? "U9UEIDBB9SG2DHLV"
         let intervalData = userDefaults.string(forKey: "intervalChooser") ?? "5min"
         let outputsizeData = userDefaults.string(forKey: "outputsizeChooser") ?? "compact"
@@ -213,14 +225,22 @@ extension CustomViewController: UISearchBarDelegate {
         print("Output: \(outputsizeData)")
         print("Symbol: \(symbolData)")
         
-        
+        if !symbolData.isEmpty {
+            userDefaults.setValue(symbolData, forKey: "stockLabel")
+        }
         
         
         // Call the funtion to fetch data
         customManager.fetchData(symbol: symbolData, apiKey: apiData, interval: intervalData, outputsize: outputsizeData)
         
-        
-        
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        if let stockLabel = userDefaults.string(forKey: "stockLabel") {
+            searchController.searchBar.placeholder = "Your Latest Search: \(stockLabel)"
+        } else {
+            searchController.searchBar.placeholder = "Search by Symbol Here, ex: Ibm, Usd"
+        }
     }
     
 }

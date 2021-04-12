@@ -10,18 +10,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="126" id="KGk-i7-Jjw" customClass="CustomViewCell" customModule="Alpha_Stock" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="370" height="126"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="151" id="KGk-i7-Jjw" customClass="CustomViewCell" customModule="Alpha_Stock" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="370" height="151"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="370" height="126"/>
+                <rect key="frame" x="0.0" y="0.0" width="370" height="151"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3S6-qh-hsL">
-                        <rect key="frame" x="5" y="5" width="360" height="116"/>
+                        <rect key="frame" x="5" y="5" width="360" height="141"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="WAc-eO-FzE">
-                                <rect key="frame" x="8" y="3" width="344" height="17"/>
+                                <rect key="frame" x="8" y="38.5" width="344" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr0-jD-h9h">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="17"/>
@@ -38,7 +38,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hu2-vr-t0q">
-                                <rect key="frame" x="8" y="23" width="344" height="17"/>
+                                <rect key="frame" x="8" y="58.5" width="344" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L4d-kx-ubn">
                                         <rect key="frame" x="0.0" y="0.0" width="41.5" height="17"/>
@@ -55,7 +55,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="rxM-HF-cgI">
-                                <rect key="frame" x="8" y="43" width="344" height="17"/>
+                                <rect key="frame" x="8" y="78.5" width="344" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWU-0M-VU8">
                                         <rect key="frame" x="0.0" y="0.0" width="43.5" height="17"/>
@@ -72,7 +72,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="lgV-to-mzx">
-                                <rect key="frame" x="8" y="63" width="344" height="17"/>
+                                <rect key="frame" x="8" y="98.5" width="344" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Low:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aVs-pv-R23">
                                         <rect key="frame" x="0.0" y="0.0" width="32.5" height="17"/>
@@ -89,7 +89,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4Se-pg-rpk">
-                                <rect key="frame" x="8" y="83" width="344" height="17"/>
+                                <rect key="frame" x="8" y="118.5" width="344" height="17"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Def-TA-gSZ">
                                         <rect key="frame" x="0.0" y="0.0" width="37" height="17"/>
@@ -105,10 +105,19 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stock Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuP-kc-QS7">
+                                <rect key="frame" x="8" y="10" width="344" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="KuP-kc-QS7" firstAttribute="top" secondItem="3S6-qh-hsL" secondAttribute="top" constant="10" id="1u7-VV-d6o"/>
                             <constraint firstItem="rxM-HF-cgI" firstAttribute="leading" secondItem="3S6-qh-hsL" secondAttribute="leading" constant="8" id="4on-wJ-F2Y"/>
+                            <constraint firstItem="WAc-eO-FzE" firstAttribute="top" secondItem="KuP-kc-QS7" secondAttribute="bottom" constant="8" id="A3C-8c-aMr"/>
+                            <constraint firstItem="KuP-kc-QS7" firstAttribute="leading" secondItem="3S6-qh-hsL" secondAttribute="leading" constant="8" id="B6J-40-ID8"/>
                             <constraint firstItem="lgV-to-mzx" firstAttribute="top" secondItem="rxM-HF-cgI" secondAttribute="bottom" constant="3" id="C1s-TE-900"/>
                             <constraint firstItem="lgV-to-mzx" firstAttribute="leading" secondItem="3S6-qh-hsL" secondAttribute="leading" constant="8" id="GEQ-jP-bgF"/>
                             <constraint firstAttribute="trailing" secondItem="lgV-to-mzx" secondAttribute="trailing" constant="8" id="I6C-6p-gxe"/>
@@ -117,9 +126,9 @@
                             <constraint firstItem="Hu2-vr-t0q" firstAttribute="top" secondItem="WAc-eO-FzE" secondAttribute="bottom" constant="3" id="WuN-Oy-Gdo"/>
                             <constraint firstAttribute="trailing" secondItem="Hu2-vr-t0q" secondAttribute="trailing" constant="8" id="XyS-Mk-TWG"/>
                             <constraint firstItem="4Se-pg-rpk" firstAttribute="leading" secondItem="3S6-qh-hsL" secondAttribute="leading" constant="8" id="YP9-ie-907"/>
-                            <constraint firstItem="WAc-eO-FzE" firstAttribute="top" secondItem="3S6-qh-hsL" secondAttribute="top" constant="3" id="a3a-1N-v1i"/>
                             <constraint firstItem="rxM-HF-cgI" firstAttribute="top" secondItem="Hu2-vr-t0q" secondAttribute="bottom" constant="3" id="ag9-Oe-Wx6"/>
                             <constraint firstAttribute="trailing" secondItem="4Se-pg-rpk" secondAttribute="trailing" constant="8" id="dZ2-te-x3O"/>
+                            <constraint firstAttribute="trailing" secondItem="KuP-kc-QS7" secondAttribute="trailing" constant="8" id="dwt-6d-6N0"/>
                             <constraint firstItem="Hu2-vr-t0q" firstAttribute="leading" secondItem="3S6-qh-hsL" secondAttribute="leading" constant="8" id="hNb-n7-YPB"/>
                             <constraint firstItem="WAc-eO-FzE" firstAttribute="leading" secondItem="3S6-qh-hsL" secondAttribute="leading" constant="8" id="tm9-dn-UcB"/>
                             <constraint firstAttribute="trailing" secondItem="WAc-eO-FzE" secondAttribute="trailing" constant="8" id="wxY-Hr-CTj"/>
@@ -140,9 +149,10 @@
                 <outlet property="highValue" destination="xAm-Sa-jo3" id="Ks8-el-jDQ"/>
                 <outlet property="lowValue" destination="KCn-S1-JSJ" id="dnC-Ld-Cx8"/>
                 <outlet property="openValue" destination="5m1-hv-7h0" id="sIo-dK-JsE"/>
+                <outlet property="stockLabel" destination="KuP-kc-QS7" id="X47-du-2Sm"/>
                 <outlet property="view" destination="3S6-qh-hsL" id="WTi-hZ-qXl"/>
             </connections>
-            <point key="canvasLocation" x="163.768115942029" y="131.25"/>
+            <point key="canvasLocation" x="163.768115942029" y="138.95089285714286"/>
         </tableViewCell>
     </objects>
     <resources>
