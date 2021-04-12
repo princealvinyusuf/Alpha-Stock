@@ -141,7 +141,16 @@ extension CustomViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if apiKeyPicker.isFirstResponder {
-            return apiKey[row]
+            switch apiKey[row] {
+            case "U9UEIDBB9SG2DHLV":
+                return "API Key 1 [Encrypted]"
+            case "B26W8O4HTXWMIWLW":
+                return "API Key 2 [Encrypted]"
+            case "GNMNBT7IFTJUVDZK":
+                return "API Key 3 [Encrypted]"
+            default:
+                return ""
+            }
         }
         if intervalPicker.isFirstResponder {
             return interval[row]
@@ -154,8 +163,30 @@ extension CustomViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if apiKeyPicker.isFirstResponder {
-            apiKeyPicker.text = apiKey[row]
-            return userDefaults.setValue(apiKey[row], forKey: "apiChooser")
+
+            if row != 0 {
+                
+                switch apiKey[row] {
+                case "U9UEIDBB9SG2DHLV":
+                    apiKeyPicker.text = "API Key 1 [Encrypted]"
+                case "B26W8O4HTXWMIWLW":
+                    apiKeyPicker.text = "API Key 2 [Encrypted]"
+                case "GNMNBT7IFTJUVDZK":
+                    apiKeyPicker.text = "API Key 3 [Encrypted]"
+                default:
+                    return
+                }
+                
+                let dataString = Data(from: apiKey[row])
+                let dataStatus = KeyChain.save(key: "apiChooser", data: dataString)
+                print("Data Status: \(dataStatus)")
+            } else {
+                apiKeyPicker.text = "Use Default Value"
+                let dataString = Data(from: "U9UEIDBB9SG2DHLV")
+                let dataStatus = KeyChain.save(key: "apiChooser", data: dataString)
+                print("Data Status: \(dataStatus)")
+            }
+            
         }
         if intervalPicker.isFirstResponder {
             intervalPicker.text = interval[row]
@@ -215,23 +246,68 @@ extension CustomViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         
-        let apiData = userDefaults.string(forKey: "apiChooser") ?? "U9UEIDBB9SG2DHLV"
+//        let apiData = userDefaults.string(forKey: "apiChooser") ?? "U9UEIDBB9SG2DHLV"
+ 
+        guard let receiveData = KeyChain.load(key: "apiChooser") else { fatalError() }
+        let resultAPI = receiveData.to(type: String.self)
+        
         let intervalData = userDefaults.string(forKey: "intervalChooser") ?? "5min"
         let outputsizeData = userDefaults.string(forKey: "outputsizeChooser") ?? "compact"
         let symbolData = searchBar.text!
         
-        print("API: \(apiData)")
-        print("Interval: \(intervalData)")
-        print("Output: \(outputsizeData)")
-        print("Symbol: \(symbolData)")
         
         if !symbolData.isEmpty {
             userDefaults.setValue(symbolData, forKey: "stockLabel")
         }
         
+        if apiKeyPicker.text != "" {
+            print("API: \(resultAPI)")
+            print("Interval: \(intervalData)")
+            print("Output: \(outputsizeData)")
+            print("Symbol: \(symbolData)")
+            
+            // Call the funtion to fetch data
+            customManager.fetchData(symbol: symbolData, apiKey: resultAPI, interval: intervalData, outputsize: outputsizeData)
+            
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+            if intervalPicker.text == "" && outputsizePicker.text == "" {
+                alert.message = "You don't configure the Interval & Outputsize field, Default System Setting was used"
+            }
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+            
+        } else {
+            customManager.fetchData(symbol: symbolData, apiKey: "U9UEIDBB9SG2DHLV", interval: intervalData, outputsize: outputsizeData)
+            
+            let alert = UIAlertController(title: "", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Oke", style: .default, handler: nil)
+            
+            if searchBar.text != "" {
+                if apiKeyPicker.text == "" && intervalPicker.text == "" && outputsizePicker.text == "" {
+                    alert.message = "You don't configure the request field, Default System Setting was used"
+                }
+                else if apiKeyPicker.text == "" && intervalPicker.text == "" {
+                    alert.message = "You don't configure the API & Interval field, Default System Setting was used"
+                }
+                else if apiKeyPicker.text == "" && outputsizePicker.text == "" {
+                    alert.message = "You don't configure the API & Outputsize field, Default System Setting was used"
+                }
+                else if intervalPicker.text == "" {
+                    alert.message = "You don't configure the Interval field, Default System Setting was used"
+                } else {
+                    alert.message = "You don't configure the Outputsize field, Default System Setting was used"
+                }
+            } else {
+                alert.message = "You don't configure the Outputsize field, Default System Setting was used"
+            }
+            
+            
+            
+            alert.addAction(action)
+            present(alert, animated: true, completion: nil)
+        }
         
-        // Call the funtion to fetch data
-        customManager.fetchData(symbol: symbolData, apiKey: apiData, interval: intervalData, outputsize: outputsizeData)
         
     }
     
