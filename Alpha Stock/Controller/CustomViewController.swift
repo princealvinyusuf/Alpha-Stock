@@ -35,7 +35,7 @@ class CustomViewController: UIViewController {
     
     // Object
     var customManager = CustomManager()
-    
+    var result: CustomModel?
     
     
     override func viewDidLoad() {
@@ -62,6 +62,8 @@ class CustomViewController: UIViewController {
         if let saveOutputsize = userDefaults.string(forKey: "outputsizeChooser") {
             outputsizePicker.placeholder = saveOutputsize
         }
+        
+        customManager.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,12 +168,28 @@ extension CustomViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 
 extension CustomViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        guard let safeResult = result else { return 1 }
+        return safeResult.date.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCellIdentifier", for: indexPath) as! CustomViewCell
+        
+        if let safeResult = result {
+            cell.dateValue.text = safeResult.date[indexPath.row]
+            cell.openValue.text = safeResult.open[indexPath.row]
+            cell.closeValue.text = safeResult.close[indexPath.row]
+            cell.lowValue.text = safeResult.low[indexPath.row]
+            cell.highValue.text = safeResult.high[indexPath.row]
+        } else {
+            cell.isHidden = true
+        }
+        
         return cell
     }
     
@@ -204,5 +222,27 @@ extension CustomViewController: UISearchBarDelegate {
         
         
     }
+    
+}
+
+
+
+// MARK: - CUSTOM MANAGER DELEGATE
+
+extension CustomViewController: CustomManagerDelegate {
+    
+    func didReceiveTableData(custom: CustomModel?) {
+        if let action = custom {
+            DispatchQueue.main.async {
+                self.result = action
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func didFailWithError(error: Error) {
+        print(error.localizedDescription)
+    }
+    
     
 }

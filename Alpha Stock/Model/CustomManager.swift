@@ -39,10 +39,9 @@ class CustomManager {
                 }
                 
                 if let safeData = data {
-                    self.parseJSON(data: safeData, interval: interval)
-                    //                    if let custom = self.parseJSON(data: safeData) {
-                    //                        self.delegate?.didReceiveTableData(custom: custom)
-                    //                    }
+                    if let custom = self.parseJSON(data: safeData, interval: interval) {
+                        self.delegate?.didReceiveTableData(custom: custom)
+                    }
                 }
             }
             
