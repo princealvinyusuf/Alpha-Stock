@@ -21,8 +21,15 @@ class CustomViewController: UIViewController {
     
     // VARIABLE
     let apiKey = [
-        "U9UEIDBB9SG2DHLV", "B26W8O4HTXWMIWLW", "GNMNBT7IFTJUVDZK",
+        "", "U9UEIDBB9SG2DHLV", "B26W8O4HTXWMIWLW", "GNMNBT7IFTJUVDZK",
     ]
+    let interval = [
+        "", "1min", "5min", "15min", "30min", "60min",
+    ]
+    let outputsize = [
+        "", "compact", "full",
+    ]
+    
     let userDefaults = UserDefaults.standard
     
     
@@ -37,11 +44,19 @@ class CustomViewController: UIViewController {
         
         pickerView.delegate = self
         apiKeyPicker.inputView = pickerView
+        intervalPicker.inputView = pickerView
+        outputsizePicker.inputView = pickerView
         dismissPickerView()
         
         
-        if let volume = userDefaults.string(forKey: "apiChooser") {
-            apiKeyPicker.placeholder = volume
+        if let saveApi = userDefaults.string(forKey: "apiChooser") {
+            apiKeyPicker.placeholder = saveApi
+        }
+        if let saveInterval = userDefaults.string(forKey: "intervalChooser") {
+            intervalPicker.placeholder = saveInterval
+        }
+        if let saveOutputsize = userDefaults.string(forKey: "outputsizeChooser") {
+            outputsizePicker.placeholder = saveOutputsize
         }
     }
     
@@ -72,6 +87,8 @@ class CustomViewController: UIViewController {
         toolBar.setItems([flexButton, button], animated: true)
         toolBar.isUserInteractionEnabled = true
         apiKeyPicker.inputAccessoryView = toolBar
+        intervalPicker.inputAccessoryView = toolBar
+        outputsizePicker.inputAccessoryView = toolBar
     }
     
     @objc func action() {
@@ -94,15 +111,44 @@ extension CustomViewController: UIPickerViewDelegate, UIPickerViewDataSource {
        }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        apiKey.count
+        if apiKeyPicker.isFirstResponder {
+            return apiKey.count
+        }
+        if intervalPicker.isFirstResponder {
+            return interval.count
+        }
+        if outputsizePicker.isFirstResponder {
+            return outputsize.count
+        }
+        return 0
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-           return apiKey[row]
+        if apiKeyPicker.isFirstResponder {
+            return apiKey[row]
+        }
+        if intervalPicker.isFirstResponder {
+            return interval[row]
+        }
+        if outputsizePicker.isFirstResponder {
+            return outputsize[row]
+        }
+        return nil
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        userDefaults.setValue(apiKey[row], forKey: "apiChooser")
+        if apiKeyPicker.isFirstResponder {
+            apiKeyPicker.text = apiKey[row]
+            return userDefaults.setValue(apiKey[row], forKey: "apiChooser")
+        }
+        if intervalPicker.isFirstResponder {
+            intervalPicker.text = interval[row]
+            return userDefaults.setValue(interval[row], forKey: "intervalChooser")
+        }
+        if outputsizePicker.isFirstResponder {
+            outputsizePicker.text = outputsize[row]
+            return userDefaults.setValue(outputsize[row], forKey: "outputsizeChooser")
+        }
         
     }
     
@@ -136,8 +182,14 @@ extension CustomViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("User Default API \(userDefaults.string(forKey: "apiChooser"))")
-        
+        print("User Default Interval \(userDefaults.string(forKey: "intervalChooser"))")
+        print("User Default Outputsize \(userDefaults.string(forKey: "outputsizeChooser"))")
        
+        // Call the funtion to fetch data
+        
+        
+        
+        
     }
     
 }
