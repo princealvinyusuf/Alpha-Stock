@@ -15,4 +15,5 @@ struct DailyModel {
     var close: String = ""
     var volume: String = ""
     var low: String = ""
+
 }

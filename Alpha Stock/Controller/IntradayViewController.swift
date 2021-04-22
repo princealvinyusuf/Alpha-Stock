@@ -140,7 +140,7 @@ extension IntradayViewController {
     
     @IBAction func segmentedControllPressed(_ sender: UISegmentedControl) {
         
-        print("Prsedd")
+        print("Pressed")
     }
     
 

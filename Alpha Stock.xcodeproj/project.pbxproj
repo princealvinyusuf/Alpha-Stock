@@ -28,10 +28,21 @@
 		9FD245A92623008D00044AE7 /* CompareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD245A82623008D00044AE7 /* CompareViewController.swift */; };
 		9FD245AD2623024000044AE7 /* CompareViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FD245AB2623024000044AE7 /* CompareViewCell.swift */; };
 		9FD245AE2623024000044AE7 /* CompareViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9FD245AC2623024000044AE7 /* CompareViewCell.xib */; };
+		9FEBCCFD262572F50078A053 /* Alpha_StockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FEBCCFC262572F50078A053 /* Alpha_StockTests.swift */; };
 		9FF208ED26240AA600C25714 /* CustomManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF208EC26240AA600C25714 /* CustomManager.swift */; };
 		9FF208F026240D3D00C25714 /* Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF208EF26240D3D00C25714 /* Custom.swift */; };
 		9FF208F3262410AB00C25714 /* CustomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF208F2262410AB00C25714 /* CustomModel.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9FEBCCFF262572F50078A053 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F93874126135EE80024DADF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F93874826135EE80024DADF;
+			remoteInfo = "Alpha Stock";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		9F040E9B2624E3C7000E9415 /* KeyChain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChain.swift; sourceTree = "<group>"; };
@@ -57,6 +68,9 @@
 		9FD245A82623008D00044AE7 /* CompareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewController.swift; sourceTree = "<group>"; };
 		9FD245AB2623024000044AE7 /* CompareViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompareViewCell.swift; sourceTree = "<group>"; };
 		9FD245AC2623024000044AE7 /* CompareViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompareViewCell.xib; sourceTree = "<group>"; };
+		9FEBCCFA262572F50078A053 /* Alpha StockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alpha StockTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9FEBCCFC262572F50078A053 /* Alpha_StockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alpha_StockTests.swift; sourceTree = "<group>"; };
+		9FEBCCFE262572F50078A053 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9FF208EC26240AA600C25714 /* CustomManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomManager.swift; sourceTree = "<group>"; };
 		9FF208EF26240D3D00C25714 /* Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Custom.swift; sourceTree = "<group>"; };
 		9FF208F2262410AB00C25714 /* CustomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModel.swift; sourceTree = "<group>"; };
@@ -64,6 +78,13 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		9F93874626135EE80024DADF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FEBCCF7262572F50078A053 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -103,6 +124,7 @@
 			isa = PBXGroup;
 			children = (
 				9F93874B26135EE80024DADF /* Alpha Stock */,
+				9FEBCCFB262572F50078A053 /* Alpha StockTests */,
 				9F93874A26135EE80024DADF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -111,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				9F93874926135EE80024DADF /* Alpha Stock.app */,
+				9FEBCCFA262572F50078A053 /* Alpha StockTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -201,6 +224,15 @@
 			path = Custom;
 			sourceTree = "<group>";
 		};
+		9FEBCCFB262572F50078A053 /* Alpha StockTests */ = {
+			isa = PBXGroup;
+			children = (
+				9FEBCCFC262572F50078A053 /* Alpha_StockTests.swift */,
+				9FEBCCFE262572F50078A053 /* Info.plist */,
+			);
+			path = "Alpha StockTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,6 +253,24 @@
 			productReference = 9F93874926135EE80024DADF /* Alpha Stock.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9FEBCCF9262572F50078A053 /* Alpha StockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9FEBCD03262572F50078A053 /* Build configuration list for PBXNativeTarget "Alpha StockTests" */;
+			buildPhases = (
+				9FEBCCF6262572F50078A053 /* Sources */,
+				9FEBCCF7262572F50078A053 /* Frameworks */,
+				9FEBCCF8262572F50078A053 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9FEBCD00262572F50078A053 /* PBXTargetDependency */,
+			);
+			name = "Alpha StockTests";
+			productName = "Alpha StockTests";
+			productReference = 9FEBCCFA262572F50078A053 /* Alpha StockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +282,10 @@
 				TargetAttributes = {
 					9F93874826135EE80024DADF = {
 						CreatedOnToolsVersion = 12.4;
+					};
+					9FEBCCF9262572F50078A053 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 9F93874826135EE80024DADF;
 					};
 				};
 			};
@@ -249,6 +303,7 @@
 			projectRoot = "";
 			targets = (
 				9F93874826135EE80024DADF /* Alpha Stock */,
+				9FEBCCF9262572F50078A053 /* Alpha StockTests */,
 			);
 		};
 /* End PBXProject section */
@@ -264,6 +319,13 @@
 				9FD245AE2623024000044AE7 /* CompareViewCell.xib in Resources */,
 				9F93875626135EE80024DADF /* Assets.xcassets in Resources */,
 				9F93875426135EE80024DADF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9FEBCCF8262572F50078A053 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,7 +357,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9FEBCCF6262572F50078A053 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9FEBCCFD262572F50078A053 /* Alpha_StockTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9FEBCD00262572F50078A053 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F93874826135EE80024DADF /* Alpha Stock */;
+			targetProxy = 9FEBCCFF262572F50078A053 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9F93875226135EE80024DADF /* Main.storyboard */ = {
@@ -471,6 +549,46 @@
 			};
 			name = Release;
 		};
+		9FEBCD01262572F50078A053 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KL6VLPSW8Q;
+				INFOPLIST_FILE = "Alpha StockTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.combro.Alpha-StockTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alpha Stock.app/Alpha Stock";
+			};
+			name = Debug;
+		};
+		9FEBCD02262572F50078A053 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KL6VLPSW8Q;
+				INFOPLIST_FILE = "Alpha StockTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.combro.Alpha-StockTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Alpha Stock.app/Alpha Stock";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -488,6 +606,15 @@
 			buildConfigurations = (
 				9F93875E26135EE80024DADF /* Debug */,
 				9F93875F26135EE80024DADF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9FEBCD03262572F50078A053 /* Build configuration list for PBXNativeTarget "Alpha StockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9FEBCD01262572F50078A053 /* Debug */,
+				9FEBCD02262572F50078A053 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
