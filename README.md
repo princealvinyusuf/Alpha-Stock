@@ -1,5 +1,5 @@
 ### Alpha-Stock
-Alpha Stock is a native iOS App that provide trade information based on AplpaVantege API
+Alpha Stock is a native iOS App that provide trade information based on AlphaVantege API
 
 
 ### Screenshot
